@@ -1,0 +1,114 @@
+/* Jessica Karpovich */
+/* SSL */
+/* C201807 */
+
+/************/
+/*  Reset   */
+/************/
+html, body, section, article, header, footer
+h1, h2, h3, p, div,
+span, a {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration-line: none;
+}
+
+
+/************/
+/*  General */
+/************/
+.content {
+    text-align: center;
+}
+
+a {
+    padding: 20px;
+}
+
+
+
+/************/
+/* Navigation */
+/************/
+.navbar {
+    /* deep red/violet */
+    background-color: #39132B;
+}
+
+.navlink {
+    color: #fff;
+}
+
+.nav-item:hover, .active {
+    color: #000;
+    /* green */
+    background-color: #4FC4A9;
+    opacity: .6;
+}
+
+.active {
+    opacity: 1;
+}
+
+
+/***************************/
+/* Custom bootstrap styles */
+/***************************/
+/************/
+/* Carousal */
+/************/
+.carousel-inner {
+    max-height: 750px;
+}
+
+/***************/
+/* Primary Btn */
+/***************/
+.btn-primary, 
+.btn-primary:hover, 
+.btn-primary:active, .btn-primary:not(:disabled):not(.disabled):active, 
+.btn-primary:focus {
+    background-color: #4FC4A9;
+    border-color: #4FC4A9;
+}
+
+.btn-primary:focus {
+    box-shadow: 0 0 0 .2rem rgba(79,196,169,.5);
+}
+
+
+.invalid-feedback {
+    display: inline;
+}
+
+
+/******************/
+/*  Sticky Footer */
+/******************/
+/*
+body {
+    /* for sticky footer, combine with .content rule
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.content {
+    flex: 1;
+}*/
+
+
+/************/
+/* Footer */
+/************/
+/*
+footer {
+    text-align: center;
+    padding: 20px 0;
+    /* swap colors from nav, color with bg-color 
+    color: #39132B;
+    background-color: #4FC4A9;
+}*/
