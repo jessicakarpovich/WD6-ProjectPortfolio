@@ -12,6 +12,7 @@ class Router {
         $this->App = new App($config);
 
         switch($urlPathParts[0]) {
+            // recognize index as valid path
             case "index":
 
                 $this->App->startApp($urlPathParts);
