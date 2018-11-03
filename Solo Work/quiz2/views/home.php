@@ -17,7 +17,25 @@
         
         <hr>
         
-        <? if (count($data["grades"]) == 0) { echo "<p>Enter data to see it here</p>"; } ?>
+        <? if (count($data["grades"]) == 0) { 
+                echo "<p>Enter data to see it here</p>"; 
+            }
+            else if (count($data["grades"]) > 0) {
+                foreach ($data["grades"] as $grade) {
+                    echo "
+                    <div class='d-flex justify-content-around'>
+                        <p><strong>Student ID:</strong> ". $grade["studentid"] ." </p>
+                        <p><strong>Name:</strong> ". $grade["studentname"] ." </p>
+                        <p><strong>Student Percent:</strong> ". $grade["studentpercent"] ." </p>
+                        <p><strong>Letter Grade:</strong> ". $grade["studentlettergrade"] ." </p>
+                        <a href='/index/edit/".$grade["studentid"]."'>EDIT</a>
+                        <a href='/index/delete/".$grade["studentid"]."'>DELETE</a>
+                    </div>
+                    ";
+                }
+            }
+            
+        ?>
         
     </section>
 

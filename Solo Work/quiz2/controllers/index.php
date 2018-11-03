@@ -54,12 +54,39 @@ class Index extends AppController {
         if ($validation["percentage"] === false) {
             $errors = "Hi Teacher, please try entering a % this time.";
         }
+        
+        // if errors, show them
         if ($errors) {
             echo $errors;
+            
+            // show home page
+            $this->getView("home");
+        } 
+        // otherwise, add entry to db
+        else {
+            // first calc letter grade
+            $percent = $_POST["percentage"];
+            $lettergrade = 0;
+            
+            if ($percent > 89) {
+                $lettergrade = "A";
+            }
+            else if ($percent > 79) {
+                $lettergrade = "B";
+            }
+            else if ($percent > 69) {
+                $lettergrade = "C";
+            }
+            else if ($percent > 59) {
+                $lettergrade = "D";
+            }
+            else {
+                $lettergrade = "F";
+            }
+            $this->parent->getModel("student")->add("insert into student_table (studentname, studentpercent, studentlettergrade) values (:studentname, :studentpercent, :studentlettergrade)", array("studentname"=>$_POST["name"], "studentpercent"=>$_POST["percentage"], "studentlettergrade"=>$lettergrade));
+            
+            header("Location:/index");
         }
-        
-        // show home page
-        $this->getView("home");
     }
 }
 
