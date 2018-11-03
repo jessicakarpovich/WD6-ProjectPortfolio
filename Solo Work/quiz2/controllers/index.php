@@ -19,7 +19,17 @@ class Index extends AppController {
         $gradeData = $this->parent->getModel("student")->select("select * from student_table");
         
         // for now, just dump the data
-        var_dump($gradeData);
+//        var_dump($gradeData);
+        
+        // show home page and pass grade data to it for display
+        $this->getView("home", $gradeData);
+    }
+    
+    // test later with view
+    // function to add a student entry
+    public function addStudent() {
+        
+        
     }
 }
 

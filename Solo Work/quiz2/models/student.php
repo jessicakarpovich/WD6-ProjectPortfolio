@@ -34,7 +34,7 @@ class student {
     }
     
     // function to update a student's data
-    public function delete($sql, $value=array()) {
+    public function update($sql, $value=array()) {
         
         $this->sql = $this->sql-prepare($sql);
         $result = $this->sql->execute($value);
