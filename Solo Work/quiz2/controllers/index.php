@@ -102,10 +102,29 @@ class Index extends AppController {
     
     
     public function editAction() {
-        // use id and name from view
-        $this->parent->getModel("student")->update("update student_table set name = :name where studentid = :id", array(":name"=>$_REQUEST["name"], ":id"=>$_REQUEST["id"]));
+        $percent = $_POST["percentage"];
+        $lettergrade = 0;
 
-        header("Location:/index");
+        if ($percent > 89) {
+            $lettergrade = "A";
+        }
+        else if ($percent > 79) {
+            $lettergrade = "B";
+        }
+        else if ($percent > 69) {
+            $lettergrade = "C";
+        }
+        else if ($percent > 59) {
+            $lettergrade = "D";
+        }
+        else {
+            $lettergrade = "F";
+        }
+
+        // use id and name from view
+        $this->parent->getModel("student")->update("update student_table set studentname=:studentname, studentpercent=:studentpercent, studentlettergrade=:studentlettergrade where studentid = :id", array(":studentname"=>$_POST["name"], "studentpercent"=>$_POST["percentage"], "studentlettergrade"=>$lettergrade, ":id"=>$_POST["id"]));
+
+        header("Location:/index/home");
     }
     
     // function to delete selected user by id

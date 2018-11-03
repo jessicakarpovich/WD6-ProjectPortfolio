@@ -19,7 +19,7 @@
                 <input type="number" name="percentage" value="<? echo $data[0]["studentpercent"]; ?>">
             </div>
             <p>Current Student Letter Grade: <? echo $data[0]["studentlettergrade"]; ?></p>
-            <input hidden value="<? echo $data[0]["studentid"]; ?>">
+            <input name="id" hidden value="<? echo $data[0]["studentid"]; ?>">
             <button class="btn btn-success" type="submit">Update</button>
         </form>
     </section>
