@@ -22,7 +22,6 @@ class Index extends AppController {
         $this->getView("home", [ "grades" => $gradeData]);
     }
     
-    // test later with view
     // function to add a student entry
     public function addStudent() {
         // select all students
@@ -87,6 +86,14 @@ class Index extends AppController {
             
             header("Location:/index");
         }
+    }
+    
+    // function to delete selected user by id
+    public function delete() {
+        $id = $this->parent->urlPathParts[2];
+        $this->parent->getModel("student")->delete("delete from student_table where studentid = :id", array(":id"=>$id));
+        
+        header("Location:/index");
     }
 }
 
