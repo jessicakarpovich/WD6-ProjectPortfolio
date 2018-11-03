@@ -8,7 +8,11 @@ class Index extends AppController {
     // constructor is used to get info for db actions
     public function __construct($parent) {
         $this->parent = $parent;
-        
+    }
+    
+    // keep this out of constructor to not have it
+    // show up on edit
+    public function home() {
         // call to load student grades
         $this->showGrades();
     }
@@ -86,6 +90,22 @@ class Index extends AppController {
             
             header("Location:/index");
         }
+    }
+    
+    public function edit() {
+        // get id through url
+        $id = $this->parent->urlPathParts[2];
+        // pass name and id to view
+        $data = $this->parent->getModel("student")->select("select * from student_table where studentid = :id", array(":id"=>$id));
+        $this->getView("edit", $data);
+    }
+    
+    
+    public function editAction() {
+        // use id and name from view
+        $this->parent->getModel("student")->update("update student_table set name = :name where studentid = :id", array(":name"=>$_REQUEST["name"], ":id"=>$_REQUEST["id"]));
+
+        header("Location:/index");
     }
     
     // function to delete selected user by id

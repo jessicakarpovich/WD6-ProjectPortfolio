@@ -30,7 +30,7 @@
                         <p><strong>Letter Grade:</strong> ". $grade["studentlettergrade"] ." </p>
                         <a href='/index/edit/".$grade["studentid"]."'>EDIT</a>
                         <a href='/index/delete/".$grade["studentid"]."'>DELETE</a>
-                    </div>
+                    </div><hr>
                     ";
                 }
             }
