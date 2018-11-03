@@ -9,7 +9,15 @@
         <h1>Student Grades Report (Teacher's App)</h1>
         <h2>Input your student's name and final grade percentage (%):</h2>
         
-        <? if (count($data) == 0) { echo "Hi"; } ?>
+        <form action="/index/addStudent" method="post">
+            <input type="text" name="name" placeholder="Student Name"/>
+            <input type="number" name="percentage" placeholder="89">
+            <input class="btn btn-success" type="submit" />
+        </form>
+        
+        <hr>
+        
+        <? if (count($data["grades"]) == 0) { echo "<p>Enter data to see it here</p>"; } ?>
         
     </section>
 
