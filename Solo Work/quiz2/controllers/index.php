@@ -62,8 +62,9 @@ class Index extends AppController {
         if ($errors) {
             echo $errors;
             
-            // show home page
-            $this->getView("home");
+//            // show home page
+//            header("Location:/index/home");
+            $this->getView("home", [ "grades" => $gradeData]);
         } 
         // otherwise, add entry to db
         else {
@@ -88,7 +89,7 @@ class Index extends AppController {
             }
             $this->parent->getModel("student")->add("insert into student_table (studentname, studentpercent, studentlettergrade) values (:studentname, :studentpercent, :studentlettergrade)", array("studentname"=>$_POST["name"], "studentpercent"=>$_POST["percentage"], "studentlettergrade"=>$lettergrade));
             
-            header("Location:/index");
+            header("Location:/index/home");
         }
     }
     
@@ -132,7 +133,7 @@ class Index extends AppController {
         $id = $this->parent->urlPathParts[2];
         $this->parent->getModel("student")->delete("delete from student_table where studentid = :id", array(":id"=>$id));
         
-        header("Location:/index");
+        header("Location:/index/home");
     }
 }
 

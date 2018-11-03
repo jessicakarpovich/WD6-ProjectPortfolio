@@ -16,7 +16,7 @@
             </div>
             <div class="form-group">
                 <label>Student Percent</label>
-                <input type="number" name="percentage" value="<? echo $data[0]["studentpercent"]; ?>">
+                <input type="number" step="0.01" name="percentage" value="<? echo $data[0]["studentpercent"]; ?>">
             </div>
             <p>Current Student Letter Grade: <? echo $data[0]["studentlettergrade"]; ?></p>
             <input name="id" hidden value="<? echo $data[0]["studentid"]; ?>">

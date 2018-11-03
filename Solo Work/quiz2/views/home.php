@@ -11,7 +11,7 @@
         
         <form action="/index/addStudent" method="post">
             <input type="text" name="name" placeholder="Student Name"/>
-            <input type="number" name="percentage" placeholder="89">
+            <input type="number" step="0.01" name="percentage" placeholder="89">
             <input class="btn btn-success" type="submit" />
         </form>
         
