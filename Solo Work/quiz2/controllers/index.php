@@ -9,7 +9,8 @@ class Index extends AppController {
     public function __construct($parent) {
         $this->parent = $parent;
         
-        // later add function call to load student grades
+        // call to load student grades
+        $this->showGrades();
     }
     
     // function to get student grades
@@ -17,8 +18,8 @@ class Index extends AppController {
         // select all students
         $gradeData = $this->parent->getModel("student")->select("select * from student_table");
         
-        // for now, just echo the data
-        echo $gradeData;
+        // for now, just dump the data
+        var_dump($gradeData);
     }
 }
 

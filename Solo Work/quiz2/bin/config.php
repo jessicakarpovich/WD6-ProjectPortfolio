@@ -6,7 +6,7 @@
 
 
 $config = array(
-'defaultController' => 'welcome',
+'defaultController' => 'index',
 'dbname' => 'grades',
 'dbpass' => 'root',
 'dbuser' =>'root',

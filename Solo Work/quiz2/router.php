@@ -18,6 +18,10 @@ class Router {
                 $this->App->startApp($urlPathParts);
 
                 break;
+            default:
+                $this->App->startApp($urlPathParts);
+
+                break;
         }
     }
 }
