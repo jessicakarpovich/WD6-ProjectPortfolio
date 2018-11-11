@@ -2,7 +2,7 @@
 
 # Use single quotes instead of double quotes to make it work with special-character passwords
 PASSWORD='root'
-PROJECTFOLDER='quiz2'
+PROJECTFOLDER='oAuth'
 
 # create project folder
 sudo mkdir "/var/www/html/${PROJECTFOLDER}"
@@ -49,9 +49,9 @@ sudo a2enmod rewrite
 
 
 echo -e "\n--- Setting up our MySQL user and db ---\n"
-mysql -uroot --password='root' -e "CREATE DATABASE grades"
-mysql -uroot --password='root' -e "grant all privileges on grades.* to 'root'@'localhost' identified by 'root'" 
-mysql -uroot --password='root' -e "USE grades;create table student_table (studentid INT AUTO_INCREMENT PRIMARY KEY, studentname varchar(50), studentpercent varchar(5), studentlettergrade varchar(5))"
+#mysql -uroot --password='root' -e "CREATE DATABASE grades"
+#mysql -uroot --password='root' -e "grant all privileges on grades.* to 'root'@'localhost' identified by 'root'" 
+#mysql -uroot --password='root' -e "USE grades;create table student_table (studentid INT AUTO_INCREMENT PRIMARY KEY, studentname varchar(50), studentpercent varchar(5), studentlettergrade varchar(5))"
 
 
 echo -e "\n--- We definitly need to see the PHP errors, turning them on ---\n"
