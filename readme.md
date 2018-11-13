@@ -6,6 +6,10 @@ The master branch includes my solo work from a previous class called Server-Side
 
 The dev branch includes what I am currently working on for WD6.
 
+### Unique Feature for WD6 Team Project
+
+My unique feature for the team project, is implementing oAuth with Google. There is a link on the Sign-in and Sign-up pages to log-in with Google. The link redirects the user to a page that lets them log-in with a Google account. Currently a work in progress.
+
 ### Quiz 2
 
 This is a simple Grade App for teachers to be able to enter student grades based on percent. Internally, the letter grade is calculated and stored in a MySQL database running on a VM using Vagrant. It has full CRUD functionality and uses the MVC structure.
