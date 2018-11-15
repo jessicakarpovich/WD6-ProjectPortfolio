@@ -8,7 +8,7 @@ The dev branch includes what I am currently working on for WD6.
 
 ### Unique Feature for WD6 Team Project
 
-My unique feature for the team project, is implementing oAuth with Google. There is a link on the Sign-in and Sign-up pages to log-in with Google. The link redirects the user to a page that lets them log-in with a Google account. Currently a work in progress.
+My unique feature for the team project, is implementing oAuth with Google. There is a link on the Sign-in and Sign-up pages to log-in with Google. The link redirects the user to a page that lets them log-in with a Google account. Upon login/register, they are redirected back to the site.
 
 ### Quiz 2
 

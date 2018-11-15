@@ -68,6 +68,7 @@
                                 </button>
                             </div>
                         </div>
+                        <a href="{{ route('redirect') }}"><strong>Register with Google</strong></a>
                     </form>
                 </div>
             </div>
