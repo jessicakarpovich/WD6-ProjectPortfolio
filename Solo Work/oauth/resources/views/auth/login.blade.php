@@ -62,6 +62,7 @@
                                 </a>
                             </div>
                         </div>
+                        <a href="{{ route('redirect') }}"><strong>Login with Google</strong></a>
                     </form>
                 </div>
             </div>
