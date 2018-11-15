@@ -20,8 +20,8 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 // for oAuth
-Route::get('/redirect', 'Auth\LoginController@redirectToProvider');
-Route::get('/callback', 'Auth\LoginController@handleProviderCallback');
+Route::get('/redirect', 'Auth\LoginController@redirectToProvider')->name('redirect');
+Route::get('/callback', 'Auth\LoginController@handleProviderCallback')->name('callback');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
