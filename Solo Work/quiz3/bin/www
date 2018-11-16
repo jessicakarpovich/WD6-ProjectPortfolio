@@ -1,0 +1,19 @@
+// default to dev env
+const NODE_ENV = process.env.NODE_ENV || 'development'
+
+// load env vars from .env
+if ( NODE_ENV === 'development' ) {
+  require( 'dotenv' ).load()
+}
+
+const app = require( '../app' )
+const http = require( 'http' )
+
+const port = 3000
+app.set( 'port', port )
+// set view engine to pug
+app.set( 'view engine', 'pug' )
+
+const server = http.createServer( app )
+server.listen( port )
+server.on( 'listening', () => console.log( 'server running on port: ' + port ) )
