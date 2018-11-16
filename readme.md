@@ -18,6 +18,10 @@ To run the app locally, you will first need to set up [vagrant](https://www.vagr
 
 If you want to have a GUI to view the db content, you can setup a program like [SequelPro](https://www.sequelpro.com/). The Vagrantfile will have the IP address and the port that you need. 
 
+### Quiz 3
+
+[Readme link](Solo%20Work/quiz3/readme.md)
+
 ## Team Development
 
 My team has decided to use [Fatima's repo](https://github.com/fsheremetyeva/WD6-ProjectPortfolio) for the iMerch team project.
