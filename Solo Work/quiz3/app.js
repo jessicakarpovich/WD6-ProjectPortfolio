@@ -21,5 +21,7 @@ db.on( 'error', console.error.bind( console, 'MongoDB connection error:' ) )
 db.once( 'open', () => console.log( 'DB CONNECTION SUCCESS' ) )
 
 // Routes - add here as they are created
+const grades = require( './routes/grades' )
+app.use( '/' , grades)
 
 module.exports = app
