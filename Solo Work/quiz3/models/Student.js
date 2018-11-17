@@ -1,7 +1,7 @@
 const mongoose = require( 'mongoose' )
 
 const studentSchema = mongoose.Schema({
-  name: String,
+  // name: String,
   studentName: { 
     type: String, 
     required: [ true, 'Enter the Student\"s name' ] 
@@ -13,7 +13,7 @@ const studentSchema = mongoose.Schema({
   studentLetterGrade: String
 })
 
-studentSchema.virtual( 'url' ).get( () => {
+studentSchema.virtual( 'url' ).get( function() {
   return this._id
 })
 

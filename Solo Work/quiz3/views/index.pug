@@ -6,13 +6,13 @@ html
     div.center
       h1 Student Grades Report App
       h2 Input your student's final grade percentage (%):
-      form(action="/add" method="post" id="studentForm" class='row')
+      form(action="/" method="post" id="studentForm" class='row')
         div
             input(type="text" name="name" placeholder="Student Name")
         div
             input(type="number" name="percent" placeholder="Student Percent")
         div
-            button(type="submit") Save Film
+            button(type="submit") Save Student
                   
       if errors
         p= errors
@@ -23,13 +23,16 @@ html
         article.row-around
           p
             strong= "Student ID: "
+            span= val.url
           p
             strong= "Name: "
-            span= val.name
+            span= val.studentName
           p
             strong= "Student Percent: "
+            span= val.studentPercent
           p
             strong= "Letter Grade: "
+            span= val.studentLetterGrade
           p
             a(href="/delete/" + val.url) Delete
           p
