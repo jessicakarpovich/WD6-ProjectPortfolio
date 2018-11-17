@@ -33,7 +33,7 @@ let getStudentById = ( req, res, next ) => {
 /***** Actual Routes *****/
 // use / route for displaying grades
 router.get('/', getStudents, ( req, res, next ) => {
-    
+    console.log('GET / 200')
     res.render('index', { studentArray: req.students })
 })
 
@@ -53,11 +53,13 @@ router.post('/', getStudents, ( req, res, next ) => {
         newStudent.validate( (err) => {
             // show errors by rendering the page again
             if ( err ) {
+                console.log('POST / Errors: ', err)
                 res.render('index', { 
                     studentArray: req.students,
                     errors: err
                 })
             } else {
+                console.log('POST / 200')
                 const percent = req.body.percent
                 if ( percent > 89 ) {
                     newStudent.studentLetterGrade = "A"
@@ -74,7 +76,7 @@ router.post('/', getStudents, ( req, res, next ) => {
                     if ( err ) {
                         console.log( 'err', err )
                     }
-                    console.log('Saved')
+                    console.log('New entry saved', newStudent)
                 })
                 // redirect back to main page
                 res.redirect('/')
@@ -84,6 +86,7 @@ router.post('/', getStudents, ( req, res, next ) => {
 })
 
 router.get('/:id', getStudentById, (req, res, next) => {
+    console.log(`GET /${req.params.id} 200`)
     res.render('edit', { student: req.student[0] })
 })
 
@@ -100,11 +103,13 @@ router.put('/:id', getStudentById, (req, res, next) => {
         newStudent.validate( (err) => {
             // show errors by rendering the page again
             if ( err ) {
+                console.log(`POST /${req.params.id} 200`)
                 res.render('edit', { 
                     student: newStudent,
                     errors: err
                 })
             } else {
+                console.log(`POST /${req.params.id} 200`)
                 const percent = req.body.percent
                 if ( percent > 89 ) {
                     newStudent.studentLetterGrade = "A"
@@ -122,7 +127,7 @@ router.put('/:id', getStudentById, (req, res, next) => {
                     if (err) {
                         console.log('err', err);
                     } else {
-                        console.log("success updating")
+                        console.log(`Success updating user ${req.params.id}`)
                     }
                     next()
                 })
@@ -134,6 +139,7 @@ router.put('/:id', getStudentById, (req, res, next) => {
 })
 
 router.delete('/delete/:id', ( req, res, next ) => {
+    console.log(`Delete /${req.params.id} 200`)
     Student.findOneAndRemove({ _id: req.params.id }, ( err, student ) => {
         if ( err ) {
             console.log( 'err', err )
