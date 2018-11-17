@@ -20,4 +20,4 @@ No need to worry about creating the db, the app will do that for you.
 
 Then run `npm install` to install the dependencies and you should be good to go! If you are missing anything, the terminal output will tell you what else to install.
 
-To run the app, make sure you are in the quiz3 directory and run `npm bin/www`
+To run the app, make sure you are in the quiz3 directory and run `npm bin/www`. Then navigate to http://localhost:3000/ in your browser and you should see a prompt with input fields to add a new entry.
