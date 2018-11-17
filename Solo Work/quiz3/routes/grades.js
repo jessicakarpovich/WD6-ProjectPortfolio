@@ -70,4 +70,19 @@ router.post('/', getStudents, ( req, res, next ) => {
     }
 })
 
+router.get('/:id', (req, res, next) => {
+    
+    res.send('<h1>Hello</h1>');
+});
+
+router.delete('/:id', ( req, res, next ) => {
+    Student.findOneAndRemove({ _id: req.params.id }, ( err, student ) => {
+        if ( err ) {
+            console.log( 'err', err )
+        } else {
+            res.json({ status: "Success", redirect: "/" })
+        }
+    })
+})
+
 module.exports = router;

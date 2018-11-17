@@ -4,7 +4,7 @@ const studentSchema = mongoose.Schema({
   // name: String,
   studentName: { 
     type: String, 
-    required: [ true, 'Enter the Student\"s name' ] 
+    required: [ true, 'Enter the Student\'s name' ] 
   },
   studentPercent: { 
     type: Number, 

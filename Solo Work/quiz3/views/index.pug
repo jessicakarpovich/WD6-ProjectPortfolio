@@ -15,12 +15,12 @@ html
             button(type="submit") Save Student
                   
       if errors
-        p= errors
+        p.err= errors
 
     div
       hr
       each val in studentArray
-        article.row-around
+        article.row-around(id=val.url)
           p
             strong= "Student ID: "
             span= val.url
@@ -33,8 +33,31 @@ html
           p
             strong= "Letter Grade: "
             span= val.studentLetterGrade
+          //- p.del
+          //-   a(href="/delete/" + val.url) Delete
+          button(class="del" id=val.url) Delete
           p
-            a(href="/delete/" + val.url) Delete
-          p
-            a(href="/edit/" + val.url) Edit
+            a(href="/" + val.url) Edit
         hr
+
+    script(
+			  src="https://code.jquery.com/jquery-3.3.1.js"
+			  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+			  crossorigin="anonymous")
+    script.
+      // delete
+      $( 'body' ).on( 'click', '.del', ( e ) => {
+          e.preventDefault()
+          $.ajax({
+              url: '/' + e.target.id,
+              method: 'delete',
+              success: (data) => {
+                  if ( data.status === "Success" ) {
+                      window.location = data.redirect
+                  }
+              }
+          })
+          .done( () => {
+              student.remove()
+          })
+      })
