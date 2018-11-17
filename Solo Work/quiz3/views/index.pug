@@ -1,0 +1,37 @@
+html
+  head
+    title Student Grades Report
+    link(rel='stylesheet', href='/style.css', type='text/css')
+  body
+    div.center
+      h1 Student Grades Report App
+      h2 Input your student's final grade percentage (%):
+      form(action="/add" method="post" id="studentForm" class='row')
+        div
+            input(type="text" name="name" placeholder="Student Name")
+        div
+            input(type="number" name="percent" placeholder="Student Percent")
+        div
+            button(type="submit") Save Film
+                  
+      if errors
+        p= errors
+
+    hr
+    div
+      each val in studentArray
+        article.row-around
+          p
+            strong= "Student ID: "
+          p
+            strong= "Name: "
+            span= val.name
+          p
+            strong= "Student Percent: "
+          p
+            strong= "Letter Grade: "
+          p
+            a(href="/delete/" + val.url) Delete
+          p
+            a(href="/edit/" + val.url) Edit
+        hr
