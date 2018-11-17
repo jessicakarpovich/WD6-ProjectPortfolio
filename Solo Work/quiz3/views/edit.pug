@@ -1,0 +1,43 @@
+html
+  head
+    title Student Grades Report
+    link(rel='stylesheet', href='/style.css', type='text/css')
+  body
+    div.center
+      h1 Edit Student Grade
+      h2 Edit your student's final grade percentage (%):
+      form(action="/" + student.url method="put" id="studentEditForm" class='row')
+        div
+            input(type="text" name="name" value=student.studentName)
+        div
+            input(type="number" name="percent" value=student.studentPercent)
+        div
+            button(type="submit") Save Student
+                  
+      if errors
+        p.err= errors
+
+    script(
+			  src="https://code.jquery.com/jquery-3.3.1.js"
+			  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+			  crossorigin="anonymous")
+    script.
+      // delete
+      $( 'body' ).on( 'submit', '#studentEditForm', ( e ) => {
+          e.preventDefault()
+          let form = $('form')
+
+          $.ajax({
+              url: '/#{student.id}',
+              method: 'put',
+              data: form.serialize(),
+              success: (data) => {
+                  if ( data.status === "Success" ) {
+                      window.location = data.redirect
+                  }
+              }
+          })
+          .done( () => {
+              student.remove()
+          })
+      })

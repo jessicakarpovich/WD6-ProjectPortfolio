@@ -49,7 +49,7 @@ html
       $( 'body' ).on( 'click', '.del', ( e ) => {
           e.preventDefault()
           $.ajax({
-              url: '/' + e.target.id,
+              url: '/delete/' + e.target.id,
               method: 'delete',
               success: (data) => {
                   if ( data.status === "Success" ) {
